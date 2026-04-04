@@ -3,8 +3,8 @@ function amalgamation_build()
 
     local project = darwin.create_project(PROJECT_NAME)
     project.add_lua_code("return (function()")
-    project.add_lua_code("local private_itens =  {}")
-    project.add_lua_code("local public_itens = {}")
+    project.add_lua_code("local privateModule =  {}")
+    project.add_lua_code("local publicModule = {}")
 
     local concat_path = true
     local src_files = darwin.dtw.list_files_recursively("src/functions", concat_path)
