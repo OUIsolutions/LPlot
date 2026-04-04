@@ -26,6 +26,6 @@ darwin.add_recipe({
     name="amalgamation",
     description="make a single file amalgamation of the project",
     outs={"release/lplot.lua"},
-    inputs={"src"},
+    inputs={},
     callback=amalgamation_build
 })
