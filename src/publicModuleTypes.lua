@@ -12,5 +12,3 @@
 
 
 
----@type PROJECT_ALIASPublicModule
-publicModule = publicModule
