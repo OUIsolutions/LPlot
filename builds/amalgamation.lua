@@ -1,5 +1,5 @@
 
-function amalgamate()
+function amalgamation_build()
 
     local project = darwin.create_project("lplot")
     project.add_lua_code("private_lplot =  {}")
@@ -27,5 +27,5 @@ darwin.add_recipe({
     description="make a single file amalgamation of the project",
     outs={"release/lplot.lua"},
     inputs={"src"},
-    callback=amalgamate
+    callback=amalgamation_build
 })
