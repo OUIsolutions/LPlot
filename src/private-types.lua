@@ -1,7 +1,8 @@
 
----@type LIB_REPLACERPrivateModule
-private_LIB_REPLACER = private_LIB_REPLACER
+---@class PROJECT_NAMEPrivateModule
 
 
----@type LIB_REPLACERModule
-LIB_REPLACER = LIB_REPLACER
+---@type PROJECT_NAMEPrivateModule
+private_itens = private_itens
+
+

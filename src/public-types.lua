@@ -1,10 +1,16 @@
 
----@class LIB_REPLACERNotebook
----@field add_text(text: string): LIB_REPLACERNotebook
----@field add_title(title: string): LIB_REPLACERNotebook
+---@class PROJECT_NAMENotebook
+---@field add_text(text: string): PROJECT_NAMENotebook
+---@field add_title(title: string): PROJECT_NAMENotebook
 ---@field get_html(): string
 
 
 
----@class LIB_REPLACERModule
----@field new_notebook fun(): LIB_REPLACERNotebook
+
+---@class PROJECT_NAMEModule
+---@field new_notebook fun(): PROJECT_NAMENotebook
+
+
+
+---@type PROJECT_NAMEModule
+public_itens = public_itens

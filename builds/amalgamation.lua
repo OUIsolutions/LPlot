@@ -1,10 +1,10 @@
 
 function amalgamation_build()
 
-    local project = darwin.create_project("lplot")
+    local project = darwin.create_project(PROJECT_NAME)
     project.add_lua_code("return (function()")
-    project.add_lua_code("local private_lplot =  {}")
-    project.add_lua_code("local lplot = {}")
+    project.add_lua_code("local private_itens =  {}")
+    project.add_lua_code("local public_itens = {}")
 
     local concat_path = true
     local src_files = darwin.dtw.list_files_recursively("src/functions", concat_path)
@@ -13,10 +13,10 @@ function amalgamation_build()
         project.add_lua_code("-- file: " .. current .. "\n")
         project.add_lua_file(current)
     end
-    project.add_lua_code("return lplot")
+    project.add_lua_code("return public_itens")
     project.add_lua_code("end)()")
     project.generate_lua_file({
-        output = "release/lplot.lua"
+        output = "release/" .. PROJECT_NAME .. ".lua"
     })
 
 end 
