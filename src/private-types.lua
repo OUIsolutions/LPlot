@@ -1,7 +1,7 @@
 
----@type LplotPrivateModule
-private_lplot = private_lplot
+---@type LIB_REPLACERPrivateModule
+private_LIB_REPLACER = private_LIB_REPLACER
 
 
----@type LplotModule
-lplot = lplot
+---@type LIB_REPLACERModule
+LIB_REPLACER = LIB_REPLACER

@@ -1,10 +1,10 @@
 
----@class LPlotNotebook
----@field add_text(text: string): LPlotNotebook
----@field add_title(title: string): LPlotNotebook
+---@class LIB_REPLACERNotebook
+---@field add_text(text: string): LIB_REPLACERNotebook
+---@field add_title(title: string): LIB_REPLACERNotebook
 ---@field get_html(): string
 
 
 
----@class LplotModule
----@field new_notebook fun(): LplotNotebook
+---@class LIB_REPLACERModule
+---@field new_notebook fun(): LIB_REPLACERNotebook
