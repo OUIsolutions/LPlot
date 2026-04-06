@@ -1,5 +1,5 @@
 
 PrivateModule.NotebookMethod_add_text = function (selfobj, text)
-    selfobj.content[#selfobj.content+1] = text
-    return self_obj
+     table.insert(selfobj.content, text)
+    return selfobj
 end

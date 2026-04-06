@@ -1,8 +1,9 @@
 
 PublicModule.newNotebook = function ()
     ---@type PROJECT_ALIASNotebook
-    local self_obj = {}
-    self_obj.content = {}
-    self_obj.add_text = function (text) return PrivateModule.NotebookMethod_add_text(self_obj, text) end
-    return self_obj
+    local selfobj = {}
+    selfobj.content = {}
+    selfobj.add_text = function (text) return PrivateModule.NotebookMethod_add_text(selfobj, text) end
+    selfobj.get_html = function () return PrivateModule.NotebookMethod_get_html(selfobj) end
+    return selfobj
 end
