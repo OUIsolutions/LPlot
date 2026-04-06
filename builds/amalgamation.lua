@@ -1,16 +1,21 @@
-
-function amalgamation_build()
-
-    local project = darwin.create_project(PROJECT_NAME)
-    project.add_lua_code("return (function()")
-    project.add_lua_file("src/modules.lua")
-   local concat_path = true
-    local src_files = darwin.dtw.list_files_recursively("src/implementations", concat_path)
+function add_dir(project, dir)
+    local concat_path = true
+    local src_files = darwin.dtw.list_files_recursively(dir, concat_path)
     for i = 1, #src_files do
         local current = src_files[i]
         project.add_lua_code("-- file: " .. current .. "\n")
         project.add_lua_file(current)
     end
+end
+function amalgamation_build()
+
+    local project = darwin.create_project(PROJECT_NAME)
+    project.add_lua_code("return (function()")
+    project.add_lua_file("src/modules.lua")
+    project.add_lua_code("local PublicModule = {}")
+    project.add_lua_code("local PrivateModule = {}")
+    add_dir(project, "src/PublicModule")
+    add_dir(project, "src/PrivateModule")
     project.add_lua_code("return publicModule")
     project.add_lua_code("end)()")
     project.generate_lua_file({
