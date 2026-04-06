@@ -28,3 +28,25 @@ darwin run_blueprint --target all
 darwin run_blueprint --target <recipe_name> 
 ```
 
+### sr struct 
+the project its contained in the src dir, with these following format
+
+| content                     | Read Everytime | description                                                                                               |
+| ---                         | ---             | ---                                                                                                      |
+| src/                        | no              | the source code of the project                                                                           |
+| src/privateModuleTypes.lua  | yes             | the private type notation of project                                                                     |
+| src/publicModuleTypes       | yes              | the public type notation of project  (will be exported to release dir)                                   |
+| src/modules.lua             | yes              | the type indication of public and private modules, to make easy for intelisense (dont need to change )   |
+| src/PrivateModule           | no              | the dir containing all the functions of the *PrivateModule*                                              |
+| src/PublicModule            | no              | the dir containing all the functions of the *PublicModule*                                               |
+
+
+### Implementations 
+all the **PrivateModule** and **PublicModule** are implemented in the `src/PrivateModule` and `src/PublicModule` dirs respectively
+, each function is contained in a file with the same name as the function, and the file is a lua file with the extension `.lua`
+
+### How to read a function 
+
+if you want to read the function **PublicModule.newNotebook** you need to read the file `src/PublicModule/newNotebook.lua`
+
+
