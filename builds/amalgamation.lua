@@ -11,12 +11,11 @@ function amalgamation_build()
 
     local project = darwin.create_project(PROJECT_NAME)
     project.add_lua_code("return (function()")
-    project.add_lua_file("src/modules.lua")
     project.add_lua_code("local PublicModule = {}")
     project.add_lua_code("local PrivateModule = {}")
     add_dir(project, "src/PublicModule")
     add_dir(project, "src/PrivateModule")
-    project.add_lua_code("return publicModule")
+    project.add_lua_code("return PublicModule")
     project.add_lua_code("end)()")
     project.generate_lua_file({
         output = "release/" .. PROJECT_NAME .. ".lua"
@@ -30,6 +29,6 @@ darwin.add_recipe({
     name="amalgamation",
     description="make a single file amalgamation of the project",
     outs={"release/" .. PROJECT_NAME .. ".lua"},
-    inputs={"src"},
+    inputs={"src","builds"},
     callback=amalgamation_build
 })
