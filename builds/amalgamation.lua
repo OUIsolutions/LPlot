@@ -4,7 +4,7 @@ function amalgamation_build()
     local project = darwin.create_project(PROJECT_NAME)
     project.add_lua_code("return (function()")
     project.add_lua_file("src/modules.lua")
-    local concat_path = true
+   local concat_path = true
     local src_files = darwin.dtw.list_files_recursively("src/implementations", concat_path)
     for i = 1, #src_files do
         local current = src_files[i]

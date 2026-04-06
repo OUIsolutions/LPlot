@@ -1,7 +1,7 @@
 
 ---@type PrivateModule
-privateModule = privateModule
-
+privateModule = {}
+privateModule.NotebookMethods = {}
 
 ---@type PROJECT_ALIASPublicModule
-publicModule = publicModule
+publicModule = {}
