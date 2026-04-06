@@ -1,10 +1,9 @@
 
 
-publicModule.newNotebook = function()
+PublicModule.newNotebook = function()
 
     local selfobj = {}
     selfobj.content = {}
-
     
 
 

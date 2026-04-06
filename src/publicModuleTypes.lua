@@ -1,9 +1,9 @@
 
 ---@class PROJECT_ALIASNotebook
+---@field add_text fun(text: string): PROJECT_ALIASNotebook
+---@field add_title fun(title: string): PROJECT_ALIASNotebook
+---@field get_html fun(): string
 ---@field content string[]
----@field add_text(text: string): PROJECT_ALIASNotebook
----@field add_title(title: string): PROJECT_ALIASNotebook
----@field get_html(): string
 
 
 
