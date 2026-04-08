@@ -1,5 +1,4 @@
 
-- create the asset mechanic 
 - Create the documentation struct 
 - create the internal template mechanic fo readme 
 - create the sample mechanic 
