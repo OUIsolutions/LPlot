@@ -1,5 +1,5 @@
 
 - Create the documentation struct 
-- create the internal template mechanic fo readme 
+- Create the internal replacment mechanic
 - create the sample mechanic 
 - improve CLAUDE.md orientating how to setup a new public function

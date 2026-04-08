@@ -2,7 +2,7 @@
 
 function add_lua_file_replacing_alias(project,file)
     local content = darwin.dtw.load_file(file)
-    content = content:gsub("PROJECT_ALIAS",PROJECT_NAME)
+    content = content:gsub("PROJECT_NAME",PROJECT_NAME)
     project.add_lua_code(content)
 
 end

@@ -1,14 +1,14 @@
 
----@class PROJECT_ALIASNotebook
----@field add_text fun(text: string): PROJECT_ALIASNotebook
----@field add_title fun(title: string): PROJECT_ALIASNotebook
----@field add_table fun(data: table): PROJECT_ALIASNotebook
+---@class PROJECT_NAMENotebook
+---@field add_text fun(text: string): PROJECT_NAMENotebook
+---@field add_title fun(title: string): PROJECT_NAMENotebook
+---@field add_table fun(data: table): PROJECT_NAMENotebook
 ---@field get_html fun(): string
 ---@field content string[]
 
 
----@class PROJECT_ALIASPublicModule
----@field newNotebook fun(): PROJECT_ALIASNotebook
+---@class PROJECT_NAMEPublicModule
+---@field newNotebook fun(): PROJECT_NAMENotebook
 
 
 

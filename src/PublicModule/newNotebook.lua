@@ -4,7 +4,7 @@ end
 
 
 PublicModuleObject.newNotebook = function ()
-    ---@type PROJECT_ALIASNotebook
+    ---@type PROJECT_NAMENotebook
     local selfobj = {}
     selfobj.content = {}
     selfobj.add_text = function (text) return PrivateModuleObject.NotebookMethod_add_text(selfobj, text) end

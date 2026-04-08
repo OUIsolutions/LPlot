@@ -3,7 +3,7 @@ function types_build()
     
     local public_content = darwin.dtw.load_file("src/publicModuleTypes.lua")
     
-    public_content = public_content:gsub("PROJECT_ALIAS", PROJECT_NAME)
+    public_content = public_content:gsub("PROJECT_NAME", PROJECT_NAME)
     
     darwin.dtw.write_file("release/" .. PROJECT_NAME .. "Types.lua", public_content)
 end 
