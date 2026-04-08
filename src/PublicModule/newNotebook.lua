@@ -1,5 +1,5 @@
 
-PublicModule.newNotebook = function ()
+PublicModuleObject.newNotebook = function ()
     ---@type PROJECT_ALIASNotebook
     local selfobj = {}
     selfobj.content = {}

@@ -7,6 +7,18 @@ function add_dir(project, dir)
         project.add_lua_file(current)
     end
 end
+function add_assets(project)
+    local assets = darwin.dtw.list_files_recursively("assets")
+    local assets_object= {}
+    for i = 1, #assets do
+        local current = assets[i]
+         assets_object[#assets_object+1] = {
+            content = darwin.dtw.load_file("assets/" .. current),
+            path = current
+         }
+    end
+    project.embed_global("AssetsObject",assets_object)
+end
 function amalgamation_build()
 
     local project = darwin.create_project(PROJECT_NAME)
@@ -17,9 +29,11 @@ function amalgamation_build()
     add_dir(project, "src/PrivateModule")
     project.add_lua_code("return PublicModule")
     project.add_lua_code("end)()")
+    add_assets(project)
     project.generate_lua_file({
         output = "release/" .. PROJECT_NAME .. ".lua"
     })
+
 
 end 
 
