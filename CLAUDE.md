@@ -34,7 +34,7 @@ The project lives in `src/` with the following layout:
 | `src/` | no | Source code root |
 | `src/privateModuleTypes.lua` | yes | Private type annotations |
 | `src/publicModuleTypes.lua` | yes | Public type annotations (exported to release dir) |
-| `src/modules.lua` | yes | Type hints for public/private modules (no changes needed) |
+| `src/InternalObjectsTyps.lua` | yes | Type hints for internal objects |
 | `src/PrivateModule/` | no | All PrivateModule function implementations |
 | `src/PublicModule/` | no | All PublicModule function implementations |
 
