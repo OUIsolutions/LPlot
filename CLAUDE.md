@@ -13,7 +13,7 @@ curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.20.0/darwin.c
 ```
 
 ### Build
-List available recipes (located in `src/builds`):
+List available recipes (located in `builds`):
 ```bash
 darwin list
 ```
