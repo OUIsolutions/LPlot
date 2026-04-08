@@ -1,10 +1,18 @@
+
+
+function add_lua_file_replacing_alias(project,file)
+    local content = darwin.dtw.load_file(file)
+    content = content:gsub("PROJECT_ALIAS",PROJECT_NAME)
+    project.add_lua_code(content)
+
+end
 function add_dir(project, dir)
     local concat_path = true
     local src_files = darwin.dtw.list_files_recursively(dir, concat_path)
     for i = 1, #src_files do
         local current = src_files[i]
         project.add_lua_code("-- file: " .. current .. "\n")
-        project.add_lua_file(current)
+        add_lua_file_replacing_alias(project,current)
     end
 end
 function add_assets(project)
@@ -23,7 +31,8 @@ function amalgamation_build()
 
     local project = darwin.create_project(PROJECT_NAME)
     project.add_lua_code("return (function()")
-    project.add_lua_file("src/object_creator.lua")
+    project.add_lua_code("local PublicModuleObject = {}")
+    project.add_lua_code("local PrivateModuleObject = {}")
     add_dir(project, "src/PublicModule")
     add_dir(project, "src/PrivateModule")
     project.add_lua_code("return PublicModuleObject")
