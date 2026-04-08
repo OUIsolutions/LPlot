@@ -17,18 +17,16 @@ function add_assets(project)
             path = current
          }
     end
-    project.embed_global(ASSETS_OBJECT,assets_object)
+    project.embed_global(PROJECT_NAME.."_AssetsObject",assets_object)
 end
 function amalgamation_build()
 
     local project = darwin.create_project(PROJECT_NAME)
     project.add_lua_code("return (function()")
-    for i = 1, #GLOBAL_OBJECTS do
-        project.add_lua_code("local " .. GLOBAL_OBJECTS[i] .. " = {}")
-    end
+    project.add_lua_file("src/object_creator.lua")
     add_dir(project, "src/PublicModule")
     add_dir(project, "src/PrivateModule")
-    project.add_lua_code("return " .. RETURN_OBJECT)
+    project.add_lua_code("return PublicModuleObject")
     project.add_lua_code("end)()")
     add_assets(project)
     project.generate_lua_file({

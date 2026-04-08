@@ -5,4 +5,4 @@ PublicModuleObject = PublicModuleObject
 PrivateModuleObject = PrivateModuleObject
 
 ---@type table
-AssetsObject = AssetsObject
+PROJECT_ALIAS_AssetsObject = PROJECT_ALIAS_AssetsObject
