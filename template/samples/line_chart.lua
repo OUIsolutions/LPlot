@@ -1,3 +1,4 @@
+---@type PROJECT_NAMEPublicModuleClass
 local plot = require("PROJECT_NAME")
 local notebook = plot.newNotebook()
 

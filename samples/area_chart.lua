@@ -1,4 +1,6 @@
+---@type lplotPublicModuleClass
 local plot = require("lplot")
+
 local notebook = plot.newNotebook()
 
 -- Single-series area chart

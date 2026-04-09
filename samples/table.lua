@@ -1,4 +1,4 @@
----@class lplotPublicModule
+---@type lplotPublicModuleClass
 local plot  = require("lplot")
 
 local teste = plot.newNotebook()

@@ -1,3 +1,4 @@
+---@type lplotPublicModuleClass
 local plot = require("lplot")
 local notebook = plot.newNotebook()
 
