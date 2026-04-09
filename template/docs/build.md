@@ -8,6 +8,11 @@ curl -L https://github.com/OUIsolutions/Darwin/releases/download/REQUIRED_DARWIN
 ```bash
 curl -L https://github.com/OUIsolutions/Darwin/releases/download/REQUIRED_DARWIN_VERSION/darwin.c -o darwin.c && gcc darwin.c -o darwin.out && sudo mv darwin.out /usr/local/bin/darwin && rm darwin.c
 ```
+
+### OTher FOormats
+check the [release](https://github.com/OUIsolutions/Darwin/releases/tag/0.20.0) page for other formats.
+
+
 and then you can build the **PROJECT_NAME.lua** with:
 ```bash
 darwin run_blueprint --target all
