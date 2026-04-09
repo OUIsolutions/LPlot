@@ -44,3 +44,13 @@ th {
 tr:nth-child(even) {
     background-color: #fafafa;
 }
+
+/* bar chart default color palette */
+.lplot-color-1 { fill: #3498db; }
+.lplot-color-2 { fill: #e74c3c; }
+.lplot-color-3 { fill: #2ecc71; }
+.lplot-color-4 { fill: #f39c12; }
+.lplot-color-5 { fill: #9b59b6; }
+.lplot-color-6 { fill: #1abc9c; }
+.lplot-color-7 { fill: #e67e22; }
+.lplot-color-8 { fill: #34495e; }
