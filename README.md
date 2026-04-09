@@ -4,17 +4,17 @@ Lplot its a library to plot graphics, tables, and content in plain HTML.
 ### Releases
 |Assets               |Description                    |
 |---------------------|-------------------------------|
-|[**PROJECT_NAME.lua**](PROJECT_REPO/releases/download/PROJECT_VERSION/PROJECT_NAME.lua) | The library in plain lua code |
-|[**PROJECT_NAMETypes.lua**](PROJECT_REPO/releases/download/PROJECT_VERSION/PROJECT_NAMETypes.lua) | The library type annotations |
+|[**lplot.lua**](https://github.com/OUIsolutions/LPlot/releases/download/0.0.1/lplot.lua) | The library in plain lua code |
+|[**lplotTypes.lua**](https://github.com/OUIsolutions/LPlot/releases/download/0.0.1/lplotTypes.lua) | The library type annotations |
 
 ### Install 
 for install the lib, you just need to download the lib and import with require
 #### Download the lib 
 ```bash
-curl -L "PROJECT_REPO/releases/download/PROJECT_VERSION/PROJECT_NAME.lua" -o "PROJECT_NAME.lua"
+curl -L "https://github.com/OUIsolutions/LPlot/releases/download/0.0.1/lplot.lua" -o "lplot.lua"
 ```
 #### Import the lib
 ```lua
-local PROJECT_NAME = require("PROJECT_NAME")
+local lplot = require("lplot")
 ```
 ### Basic Usage

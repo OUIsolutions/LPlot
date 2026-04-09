@@ -1,6 +1,6 @@
 # Building from Source
 
-This guide explains how to build **PROJECT_NAME.lua** from the source code.
+This guide explains how to build **lplot.lua** from the source code.
 If you just want to use the library, grab the pre-built release from the [Releases](#) page instead.
 
 ---
@@ -21,7 +21,7 @@ Choose the command that matches your operating system and paste it into your ter
 ### Linux
 
 ```bash
-curl -L https://github.com/OUIsolutions/Darwin/releases/download/REQUIRED_DARWIN_VERSION/darwin.c -o darwin.c \
+curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.020/darwin.c -o darwin.c \
   && gcc darwin.c -o darwin.out \
   && sudo mv darwin.out /usr/bin/darwin \
   && rm darwin.c
@@ -30,7 +30,7 @@ curl -L https://github.com/OUIsolutions/Darwin/releases/download/REQUIRED_DARWIN
 ### macOS
 
 ```bash
-curl -L https://github.com/OUIsolutions/Darwin/releases/download/REQUIRED_DARWIN_VERSION/darwin.c -o darwin.c \
+curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.020/darwin.c -o darwin.c \
   && gcc darwin.c -o darwin.out \
   && sudo mv darwin.out /usr/local/bin/darwin \
   && rm darwin.c
@@ -50,7 +50,7 @@ Once Darwin is installed, run the following command from the **root of the repos
 darwin run_blueprint --target all
 ```
 
-This will generate **PROJECT_NAME.lua** inside the `release/` folder.
+This will generate **lplot.lua** inside the `release/` folder.
 
 ---
 
