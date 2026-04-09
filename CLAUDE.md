@@ -43,3 +43,17 @@ Each function in `PrivateModule` and `PublicModule` lives in its own `.lua` file
 
 **Example:** `PublicModule.newNotebook` → `src/PublicModule/newNotebook.lua`
 
+### Assets
+(js,css,images,fonts,etc) must be stored in [assets](/assets/) folder, and they can be retrived by the lib
+using the function `PrivateModuleObject.get_asset(asset_name: string): string`
+
+### Replacment Mechanic
+the project use a replacement mechanic, if you need to create a markdown or a sample ,create inside template dir
+when the recipe templates its runned, it aplys the replacment using the REPLACERS var inside [darwinconf.lua](darwinconf.lua)
+
+### Public Functions or methods
+what ever public function or method you need to create, fowlow these steps:
+1. implement the code
+2. write into [template/samples/<sample>.lua] a sample of usage the lib
+3. write into [template/docs/public_api.md] a documentation of the function
+
