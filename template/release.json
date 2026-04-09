@@ -1,0 +1,6 @@
+{
+	"assets":	["release/PROJECT_NAME.lua", "release/PROJECT_NAMETypes.lua"],
+	"description":	"second release",
+	"release":	"PROJECT_VERSION",
+	"tag":	"PROJECT_VERSION"
+}
