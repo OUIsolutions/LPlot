@@ -4,7 +4,7 @@ local notebook = plot.newNotebook()
 -- Single-series area chart
 notebook.add_title("Server Load Over Time")
 notebook.add_area_chart(
-    { "00:00"=12, "04:00"=8, "08:00"=45, "12:00"=72, "16:00"=68, "20:00"=50, "23:00"=20 },
+    { ["00:00"]=12, ["04:00"]=8, ["08:00"]=45, ["12:00"]=72, ["16:00"]=68, ["20:00"]=50, ["23:00"]=20 },
     {
         title    = "CPU Usage (%)",
         subtitle = "Last 24 hours",

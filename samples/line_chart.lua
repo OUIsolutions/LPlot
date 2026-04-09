@@ -35,7 +35,7 @@ notebook.add_line_chart(
     }
 )
 
-local html = notebook.get_html(plot.darkmode)
+local html = notebook.get_html()
 local f = io.open("line_chart.html", "w")
 f:write(html)
 f:close()
