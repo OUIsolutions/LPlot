@@ -1,13 +1,13 @@
 
 ---@class PrivateModule
----@field NotebookMethod_add_text fun(selfobj:PROJECT_NAMENotebook, text: string): PROJECT_NAMENotebook
----@field NotebookMethod_get_html fun(selfobj:PROJECT_NAMENotebook, style?: string): string
----@field NotebookMethod_add_bar_chart fun(selfobj:PROJECT_NAMENotebook, data: table, options?: PROJECT_NAMEBarChartOptions): PROJECT_NAMENotebook
----@field NotebookMethod_add_line_chart fun(selfobj:PROJECT_NAMENotebook, data: table, options?: PROJECT_NAMELineChartOptions): PROJECT_NAMENotebook
+---@field Notebook___add_text fun(selfobj:PROJECT_NAMENotebook, text: string): PROJECT_NAMENotebook
+---@field Notebook___get_html fun(selfobj:PROJECT_NAMENotebook, style?: string): string
+---@field Notebook___add_bar_chart fun(selfobj:PROJECT_NAMENotebook, data: table, options?: PROJECT_NAMEBarChartOptions): PROJECT_NAMENotebook
+---@field Notebook___add_line_chart fun(selfobj:PROJECT_NAMENotebook, data: table, options?: PROJECT_NAMELineChartOptions): PROJECT_NAMENotebook
 ---@field Notebook_add_area_chart fun(selfobj:PROJECT_NAMENotebook, data: table, options?: PROJECT_NAMEAreaChartOptions): PROJECT_NAMENotebook
----@field NotebookMethod_add_pie_chart fun(selfobj:PROJECT_NAMENotebook, data: table, options?: PROJECT_NAMEPieChartOptions): PROJECT_NAMENotebook
----@field NotebookMethod_add_scatter_chart fun(selfobj:PROJECT_NAMENotebook, data: table, options?: PROJECT_NAMEScatterChartOptions): PROJECT_NAMENotebook
----@field NotebookMethod_add_subtitle fun(selfobj:PROJECT_NAMENotebook, subtitle: string): PROJECT_NAMENotebook
----@field NotebookMethod_add_separator fun(selfobj:PROJECT_NAMENotebook): PROJECT_NAMENotebook
+---@field Notebook___add_pie_chart fun(selfobj:PROJECT_NAMENotebook, data: table, options?: PROJECT_NAMEPieChartOptions): PROJECT_NAMENotebook
+---@field Notebook___add_scatter_chart fun(selfobj:PROJECT_NAMENotebook, data: table, options?: PROJECT_NAMEScatterChartOptions): PROJECT_NAMENotebook
+---@field Notebook___add_subtitle fun(selfobj:PROJECT_NAMENotebook, subtitle: string): PROJECT_NAMENotebook
+---@field Notebook___add_separator fun(selfobj:PROJECT_NAMENotebook): PROJECT_NAMENotebook
 ---@field get_asset fun(name: string): string
 ---@field lib_start fun(): nil

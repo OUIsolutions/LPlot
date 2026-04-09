@@ -1,5 +1,5 @@
 
-PrivateModuleObject.NotebookMethod_add_pie_chart = function(selfobj, data, options)
+PrivateModuleObject.Notebook___add_pie_chart = function(selfobj, data, options)
     if not data or type(data) ~= "table" then return selfobj end
 
     options = options or {}
