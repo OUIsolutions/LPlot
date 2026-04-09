@@ -1,7 +1,7 @@
 ---@type PROJECT_NAMEPublicModule
 PublicModuleObject = PublicModuleObject
 
----@type PrivateModule
+---@type PrivateModuleClass
 PrivateModule = PrivateModule
 
 ---@type table

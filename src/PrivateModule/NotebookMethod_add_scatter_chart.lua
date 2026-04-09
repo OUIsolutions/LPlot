@@ -1,5 +1,5 @@
 
-PrivateModule.NotebookMethod_add_scatter_chart = function(selfobj, data, options)
+PrivateModule.Notebook_add_scatter_chart = function(selfobj, data, options)
     if not data or type(data) ~= "table" then return selfobj end
 
     options = options or {}

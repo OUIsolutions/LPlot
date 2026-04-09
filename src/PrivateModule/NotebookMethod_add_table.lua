@@ -1,4 +1,4 @@
-PrivateModule.NotebookMethod_add_table = function (selfobj, data)
+PrivateModule.Notebook_add_table = function (selfobj, data)
     if not data or type(data) ~= "table" or #data == 0 then
         return selfobj
     end

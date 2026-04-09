@@ -1,5 +1,5 @@
 
-PrivateModule.NotebookMethod_get_html = function (selfobj, style)
+PrivateModule.Notebook_get_html = function (selfobj, style)
     local css
     if type(style) == "string" then
         css = style
