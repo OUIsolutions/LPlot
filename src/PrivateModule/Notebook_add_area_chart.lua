@@ -1,5 +1,5 @@
 
-PrivateModuleObject.NotebookMethod_add_area_chart = function(selfobj, data, options)
+PrivateModuleObject.Notebook_add_area_chart = function(selfobj, data, options)
     if not data or type(data) ~= "table" then return selfobj end
 
     options = options or {}
