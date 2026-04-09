@@ -3,7 +3,7 @@
 ---@field add_text fun(text: string): PROJECT_NAMENotebook
 ---@field add_title fun(title: string): PROJECT_NAMENotebook
 ---@field add_table fun(data: table): PROJECT_NAMENotebook
----@field get_html fun(): string
+---@field get_html fun(style?: string): string
 ---@field content string[]
 
 

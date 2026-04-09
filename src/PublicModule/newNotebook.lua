@@ -1,6 +1,3 @@
-PublicModuleObject.test = function ()
-    print(PrivateModuleObject.get_asset("teste.css"))
-end
 
 
 PublicModuleObject.newNotebook = function ()
@@ -10,6 +7,6 @@ PublicModuleObject.newNotebook = function ()
     selfobj.add_text = function (text) return PrivateModuleObject.NotebookMethod_add_text(selfobj, text) end
     selfobj.add_title = function (title) return PrivateModuleObject.NotebookMethod_add_title(selfobj, title) end
     selfobj.add_table = function (data) return PrivateModuleObject.NotebookMethod_add_table(selfobj, data) end
-    selfobj.get_html = function () return PrivateModuleObject.NotebookMethod_get_html(selfobj) end
+    selfobj.get_html = function (style) return PrivateModuleObject.NotebookMethod_get_html(selfobj, style) end
     return selfobj
 end
