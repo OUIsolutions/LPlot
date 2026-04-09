@@ -1,6 +1,6 @@
 
-PrivateModuleObject.lib_start = function ()
-    PublicModuleObject.darkmode = PrivateModuleObject.get_asset("darkmode.css")
-    PublicModuleObject.lightmode = PrivateModuleObject.get_asset("lightmode.css")
-    PublicModuleObject.cyberpunk = PrivateModuleObject.get_asset("cyberpunk.css")
+PrivateModule.lib_start = function ()
+    PublicModuleObject.darkmode = PrivateModule.get_asset("darkmode.css")
+    PublicModuleObject.lightmode = PrivateModule.get_asset("lightmode.css")
+    PublicModuleObject.cyberpunk = PrivateModule.get_asset("cyberpunk.css")
 end 

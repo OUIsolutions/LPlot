@@ -1,10 +1,10 @@
 
-PrivateModuleObject.NotebookMethod_get_html = function (selfobj, style)
+PrivateModule.NotebookMethod_get_html = function (selfobj, style)
     local css
     if type(style) == "string" then
         css = style
     else
-        css = PrivateModuleObject.get_asset("default.css") or ""
+        css = PrivateModule.get_asset("default.css") or ""
     end
     local parts = {}
     parts[#parts + 1] = "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><style>"

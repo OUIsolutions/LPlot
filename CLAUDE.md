@@ -45,7 +45,7 @@ Each function in `PrivateModule` and `PublicModule` lives in its own `.lua` file
 
 ### Assets
 (js,css,images,fonts,etc) must be stored in [assets](/assets/) folder, and they can be retrived by the lib
-using the function `PrivateModuleObject.get_asset(asset_name: string): string`
+using the function `PrivateModule.get_asset(asset_name: string): string`
 
 ### Replacment Mechanic
 the project use a replacement mechanic, if you need to create a markdown or a sample ,create inside template dir
