@@ -34,7 +34,7 @@
 ---@field content string[]
 
 
----@class PROJECT_NAMEPublicModule
+---@class PROJECT_NAMEPublicModuleClass
 ---@field newNotebook fun(): PROJECT_NAMENotebook
 ---@field darkmode string
 ---@field lightmode string

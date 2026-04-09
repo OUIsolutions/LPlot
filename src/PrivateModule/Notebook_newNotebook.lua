@@ -1,6 +1,6 @@
 
 
-PublicModuleObject.newNotebook = function ()
+PrivateModule.newNotebook = function ()
     ---@type PROJECT_NAMENotebook
     local selfobj = {}
     selfobj.content = {}

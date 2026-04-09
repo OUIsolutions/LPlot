@@ -10,4 +10,5 @@
 ---@field Notebook_add_subtitle fun(selfobj:PROJECT_NAMENotebook, subtitle: string): PROJECT_NAMENotebook
 ---@field Notebook_add_separator fun(selfobj:PROJECT_NAMENotebook): PROJECT_NAMENotebook
 ---@field get_asset fun(name: string): string
----@field lib_start fun(): nil
+---@field lib_start fun(): PROJECT_NAMEPublicModuleClass
+---@field newNotebook fun(): PROJECT_NAMENotebook

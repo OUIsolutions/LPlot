@@ -1,5 +1,4 @@
----@type PROJECT_NAMEPublicModule
-PublicModuleObject = PublicModuleObject
+
 
 ---@type PrivateModuleClass
 PrivateModule = PrivateModule
