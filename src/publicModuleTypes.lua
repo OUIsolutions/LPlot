@@ -36,3 +36,6 @@
 
 ---@class PROJECT_NAMEPublicModule
 ---@field newNotebook fun(): PROJECT_NAMENotebook
+---@field darkmode string
+---@field lightmode string
+---@field cyberpunk string
