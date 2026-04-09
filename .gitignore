@@ -1,3 +1,4 @@
 .darwincache
 release
 test.lua
+samples/lplot.lua

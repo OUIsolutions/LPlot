@@ -18,3 +18,4 @@ curl -L "https://github.com/OUIsolutions/LPlot/releases/download/0.0.1/lplot.lua
 local lplot = require("lplot")
 ```
 ### Basic Usage
+

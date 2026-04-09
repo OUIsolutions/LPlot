@@ -17,4 +17,11 @@ curl -L "PROJECT_REPO/releases/download/PROJECT_VERSION/PROJECT_NAME.lua" -o "PR
 ```lua
 local PROJECT_NAME = require("PROJECT_NAME")
 ```
-### Basic Usage
+### Documentation
+|Documentation|Description|
+|-------------|-------------|
+|[**Build**](docs/build.md)|How to build the project|
+|[**Public API**](docs/public_api.md)|How to use the library|
+
+### Samples
+into the [samples](/samples) folder you can find examples of how to use the library

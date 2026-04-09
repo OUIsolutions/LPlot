@@ -38,9 +38,10 @@ function amalgamation_build()
     project.add_lua_code("return PublicModuleObject")
     project.add_lua_code("end)()")
     add_assets(project)
-    project.generate_lua_file({
-        output = "release/" .. PROJECT_NAME .. ".lua"
-    })
+    local code = project.generate_lua_code({})
+    darwin.dtw.write_file("release/" .. PROJECT_NAME .. ".lua", code)
+    darwin.dtw.write_file("samples/" .. PROJECT_NAME .. ".lua", code)
+
 
 
 end 
