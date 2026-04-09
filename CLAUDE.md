@@ -36,12 +36,12 @@ The project lives in `src/` with the following layout:
 | `src/publicModuleTypes.lua` | yes | Public type annotations (exported to release dir) |
 | `src/InternalObjectsTyps.lua` | yes | Type hints for internal objects |
 | `src/PrivateModule/` | no | All PrivateModule function implementations |
-| `src/PublicModule/` | no | All PublicModule function implementations |
+| `src/PrivateModule/lib_start.lua` | yes | The lib initialization (return PublicModule) |
 
 ### Implementations
-Each function in `PrivateModule` and `PublicModule` lives in its own `.lua` file named after the function.
+Each function in `PrivateModule` lives in its own `.lua` file named after the function.
 
-**Example:** `PublicModule.newNotebook` → `src/PublicModule/newNotebook.lua`
+**Example:** `PrivateModule.newNotebook` → `src/PrivateModule/newNotebook.lua`
 
 ### Assets
 (js,css,images,fonts,etc) must be stored in [assets](/assets/) folder, and they can be retrived by the lib
