@@ -6,7 +6,7 @@ REPLACERS = {
     REQUIRED_DARWIN_VERSION = "0.020",
     PROJECT_NAME = PROJECT_NAME,
     PROJECT_REPO = "https://github.com/OUIsolutions/LPlot",
-    PROJECT_VERSION = "0.0.2",
+    PROJECT_VERSION = "0.0.3",
     PROJECT_OWNER = "OUIsolutions",
 }
 
