@@ -1,7 +1,7 @@
 <div align="center">
 
 # lplot
-![Lua Logo](https://img.shields.io/badge/lplot-0.0.2-blue?style=for-the-badge&logo=lua)
+![Lua Logo](https://img.shields.io/badge/lplot-0.0.3-blue?style=for-the-badge&logo=lua)
 [![GitHub Release](https://img.shields.io/github/release/OUIsolutions/lplot.svg?style=for-the-badge)](https://github.com/OUIsolutions/LPlot/releases)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/OUIsolutions/LPlot/blob/main/LICENSE)
 ![Status](https://img.shields.io/badge/Status-Alpha-orange?style=for-the-badge)
@@ -40,8 +40,8 @@ This library is designed for developers who need to:
 
 | **File** | **Description** |
 |----------|-----------------|
-| [lplot.lua](https://github.com/OUIsolutions/LPlot/releases/download/0.0.2/lplot.lua) | The library in plain lua code |
-| [lplotTypes.lua](https://github.com/OUIsolutions/LPlot/releases/download/0.0.2/lplotTypes.lua) | The library type annotations |
+| [lplot.lua](https://github.com/OUIsolutions/LPlot/releases/download/0.0.3/lplot.lua) | The library in plain lua code |
+| [lplotTypes.lua](https://github.com/OUIsolutions/LPlot/releases/download/0.0.3/lplotTypes.lua) | The library type annotations |
 
 ## Installation Tutorials
 
@@ -49,7 +49,7 @@ To install the library, you just need to download it and import it with `require
 
 ### Download the lib 
 ```bash
-curl -L "https://github.com/OUIsolutions/LPlot/releases/download/0.0.2/lplot.lua" -o "lplot.lua"
+curl -L "https://github.com/OUIsolutions/LPlot/releases/download/0.0.3/lplot.lua" -o "lplot.lua"
 ```
 
 ### Import the lib
