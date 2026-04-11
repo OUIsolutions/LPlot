@@ -23,6 +23,7 @@ local data = {
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
 | `display` | `"vertical"` \| `"horizontal"` | `"vertical"` | Orientation of the bars. |
+| `ordenation` | `string[]` | alphabetical | Explicit order for the category keys. Keys not listed are appended alphabetically at the end. |
 | `colors` | `table` | built-in palette | Map of data key → CSS color string (e.g. `"#e74c3c"`). Missing keys fall back to the default palette. |
 | `size.width` | `number` | `600` | SVG width in pixels. |
 | `size.height` | `number` | `400` | SVG height in pixels. |
@@ -116,6 +117,7 @@ Renders a pie (or donut) chart as an inline SVG.
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
 | `donut` | `boolean` | `false` | Render as a donut chart with a hollow center. |
+| `ordenation` | `string[]` | alphabetical | Explicit order for the slice keys. Keys not listed are appended alphabetically at the end. |
 | `colors` | `table` | built-in palette | Map of slice key → CSS color string. |
 | `size.width` | `number` | `500` | SVG width in pixels. |
 | `size.height` | `number` | `400` | SVG height in pixels. |

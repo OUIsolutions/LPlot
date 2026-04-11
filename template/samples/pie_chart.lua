@@ -2,14 +2,15 @@
 local plot = require("PROJECT_NAME")
 local notebook = plot.newNotebook()
 
--- Pie chart
+-- Pie chart with explicit slice order
 notebook.add_title("Traffic Sources")
 notebook.add_pie_chart(
     { organic = 42, paid = 28, referral = 18, direct = 12 },
     {
-        title    = "Website Traffic Sources",
-        subtitle = "Q1 2026",
-        size     = { width = 500, height = 380 },
+        title      = "Website Traffic Sources",
+        subtitle   = "Q1 2026",
+        ordenation = { "organic", "paid", "referral", "direct" },
+        size       = { width = 500, height = 380 },
     }
 )
 

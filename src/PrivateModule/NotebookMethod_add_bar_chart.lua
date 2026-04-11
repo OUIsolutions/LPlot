@@ -5,20 +5,36 @@ PrivateModule.Notebook_add_bar_chart = function(selfobj, data, options)
     end
 
     options = options or {}
-    local display  = options.display or "vertical"
-    local colors   = options.colors  or {}
-    local size     = options.size    or {}
-    local width    = size.width      or 600
-    local height   = size.height     or 400
-    local title    = options.title   or ""
-    local subtitle = options.subtitle or ""
+    local display    = options.display    or "vertical"
+    local colors     = options.colors     or {}
+    local size       = options.size       or {}
+    local width      = size.width         or 600
+    local height     = size.height        or 400
+    local title      = options.title      or ""
+    local subtitle   = options.subtitle   or ""
+    local ordenation = options.ordenation
 
-    -- collect and sort keys for deterministic order
+    -- build key list respecting ordenation if provided
     local keys = {}
-    for k in pairs(data) do
-        table.insert(keys, k)
+    if ordenation then
+        local seen = {}
+        for _, k in ipairs(ordenation) do
+            if data[k] ~= nil then
+                table.insert(keys, k)
+                seen[k] = true
+            end
+        end
+        -- append remaining keys (alphabetically) that were not listed
+        local extra = {}
+        for k in pairs(data) do
+            if not seen[k] then table.insert(extra, k) end
+        end
+        table.sort(extra)
+        for _, k in ipairs(extra) do table.insert(keys, k) end
+    else
+        for k in pairs(data) do table.insert(keys, k) end
+        table.sort(keys)
     end
-    table.sort(keys)
 
     local values = {}
     for _, k in ipairs(keys) do
@@ -35,12 +51,32 @@ PrivateModule.Notebook_add_bar_chart = function(selfobj, data, options)
 
     local n = #keys
 
+    -- longest key length (used for dynamic margins)
+    local max_key_len = 0
+    for _, k in ipairs(keys) do
+        if #k > max_key_len then max_key_len = #k end
+    end
+    local char_w = 6.5  -- approximate pixel width per char at font-size 11
+
     -- title / subtitle vertical space
     local title_space = 0
     if title    ~= "" then title_space = title_space + 30 end
     if subtitle ~= "" then title_space = title_space + 22 end
 
-    local margin = { top = 10 + title_space, right = 30, bottom = 60, left = 65 }
+    -- dynamic margins
+    local left_margin, bottom_margin
+    if display == "vertical" then
+        -- rotated labels at -35°: vertical component ≈ len * char_w * sin(35°)
+        local rot_h = math.ceil(max_key_len * char_w * 0.574) + 20
+        bottom_margin = math.max(60, rot_h)
+        left_margin   = 65
+    else
+        -- horizontal: key labels sit to the left of the y-axis
+        left_margin   = math.max(65, math.ceil(max_key_len * char_w) + 14)
+        bottom_margin = 40
+    end
+
+    local margin = { top = 10 + title_space, right = 30, bottom = bottom_margin, left = left_margin }
     local cw = width  - margin.left - margin.right   -- chart width
     local ch = height - margin.top  - margin.bottom  -- chart height
 
@@ -86,14 +122,14 @@ PrivateModule.Notebook_add_bar_chart = function(selfobj, data, options)
                 gy, gval)
         end
 
-        local slot      = cw / n
-        local bar_w     = slot * 0.65
+        local slot  = cw / n
+        local bar_w = slot * 0.65
 
         for i, key in ipairs(keys) do
-            local val      = values[i]
-            local bar_h    = (val / max_val) * ch
-            local bx       = (i - 1) * slot + (slot - bar_w) / 2
-            local by       = ch - bar_h
+            local val   = values[i]
+            local bar_h = (val / max_val) * ch
+            local bx    = (i - 1) * slot + (slot - bar_w) / 2
+            local by    = ch - bar_h
 
             p[#p+1] = string.format(
                 '<rect x="%g" y="%g" width="%g" height="%g" %s rx="3"/>',
@@ -102,7 +138,7 @@ PrivateModule.Notebook_add_bar_chart = function(selfobj, data, options)
             p[#p+1] = string.format(
                 '<text x="%g" y="%g" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">%s</text>',
                 bx + bar_w / 2, by - 5, tostring(val))
-            -- x-axis label (rotated so long names don't overlap)
+            -- x-axis label rotated so long names don't overlap
             local lx = bx + bar_w / 2
             local ly = ch + 18
             p[#p+1] = string.format(
@@ -140,7 +176,7 @@ PrivateModule.Notebook_add_bar_chart = function(selfobj, data, options)
             p[#p+1] = string.format(
                 '<text x="%g" y="%g" dominant-baseline="middle" font-family="sans-serif" font-size="11" fill="#333">%s</text>',
                 bar_w + 5, by + bar_h / 2, tostring(val))
-            -- y-axis label
+            -- y-axis label (right-aligned against the axis)
             p[#p+1] = string.format(
                 '<text x="-8" y="%g" text-anchor="end" dominant-baseline="middle" font-family="sans-serif" font-size="11" fill="#555">%s</text>',
                 by + bar_h / 2, key)

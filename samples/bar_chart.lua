@@ -9,12 +9,13 @@ local bar_data = {
     trial_users = 30,
 }
 
--- Vertical bar chart
+-- Vertical bar chart with custom order
 notebook.add_bar_chart(bar_data, {
-    display  = "vertical",
-    title    = "User Distribution",
-    subtitle = "Q1 2026",
-    colors   = {
+    display    = "vertical",
+    title      = "User Distribution",
+    subtitle   = "Q1 2026",
+    ordenation = { "free_users", "payd_users", "trial_users" },
+    colors     = {
         payd_users  = "#e74c3c",
         free_users  = "#2ecc71",
         trial_users = "#f39c12",

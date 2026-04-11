@@ -7,6 +7,7 @@
 
 ---@class PROJECT_NAMEBarChartOptions : PROJECT_NAMEChartOptions
 ---@field display? string        "vertical" (default) or "horizontal"
+---@field ordenation? string[]   explicit order for the category keys
 
 ---@class PROJECT_NAMELineChartOptions : PROJECT_NAMEChartOptions
 ---@field x_key? string          key used as x-axis label in multi-series mode (default "x")
@@ -16,6 +17,7 @@
 
 ---@class PROJECT_NAMEPieChartOptions : PROJECT_NAMEChartOptions
 ---@field donut? boolean         render as donut chart (default false)
+---@field ordenation? string[]   explicit order for the slice keys
 
 ---@class PROJECT_NAMEScatterChartOptions : PROJECT_NAMEChartOptions
 

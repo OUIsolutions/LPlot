@@ -3,20 +3,38 @@ PrivateModule.Notebook_add_pie_chart = function(selfobj, data, options)
     if not data or type(data) ~= "table" then return selfobj end
 
     options = options or {}
-    local size     = options.size     or {}
-    local width    = size.width       or 500
-    local height   = size.height      or 400
-    local title    = options.title    or ""
-    local subtitle = options.subtitle or ""
-    local colors   = options.colors   or {}
-    local donut    = options.donut    or false
+    local size       = options.size     or {}
+    local width      = size.width       or 500
+    local height     = size.height      or 400
+    local title      = options.title    or ""
+    local subtitle   = options.subtitle or ""
+    local colors     = options.colors   or {}
+    local donut      = options.donut    or false
+    local ordenation = options.ordenation
 
     local PALETTE = {"#3498db","#e74c3c","#2ecc71","#f39c12","#9b59b6","#1abc9c","#e67e22","#34495e"}
     local NUM_PALETTE = #PALETTE
 
+    -- build key list respecting ordenation if provided
     local keys = {}
-    for k in pairs(data) do table.insert(keys, k) end
-    table.sort(keys)
+    if ordenation then
+        local seen = {}
+        for _, k in ipairs(ordenation) do
+            if data[k] ~= nil then
+                table.insert(keys, k)
+                seen[k] = true
+            end
+        end
+        local extra = {}
+        for k in pairs(data) do
+            if not seen[k] then table.insert(extra, k) end
+        end
+        table.sort(extra)
+        for _, k in ipairs(extra) do table.insert(keys, k) end
+    else
+        for k in pairs(data) do table.insert(keys, k) end
+        table.sort(keys)
+    end
 
     local total = 0
     for _, k in ipairs(keys) do total = total + (data[k] or 0) end
@@ -24,8 +42,25 @@ PrivateModule.Notebook_add_pie_chart = function(selfobj, data, options)
 
     local title_h    = (title    ~= "" and 30 or 0)
     local subtitle_h = (subtitle ~= "" and 22 or 0)
-    local legend_h   = 28   -- always show legend for pie
     local header_h   = title_h + subtitle_h
+
+    -- Pre-compute legend layout (may wrap to multiple rows)
+    local legend_row_h = 18
+    local char_w       = 7   -- approximate px per char at font-size 11
+    local item_pad     = 14  -- padding between items
+    local swatch_w     = 28  -- swatch (12px) + gap to text (16px)
+
+    local lx_sim   = 10
+    local leg_rows = 1
+    for _, k in ipairs(keys) do
+        local item_w = swatch_w + #k * char_w + item_pad
+        if lx_sim + item_w > width and lx_sim > 10 then
+            leg_rows = leg_rows + 1
+            lx_sim   = 10
+        end
+        lx_sim = lx_sim + item_w
+    end
+    local legend_h = leg_rows * legend_row_h + 6
 
     -- Usable vertical space for the pie
     local pie_area_h = height - header_h - legend_h - 20
@@ -88,10 +123,10 @@ PrivateModule.Notebook_add_pie_chart = function(selfobj, data, options)
         -- Percentage label inside slice (only if slice is large enough)
         local pct = (val / total) * 100
         if pct >= 5 then
-            local mid  = angle + sweep / 2
-            local lr   = radius * 0.65 + inner_r * 0.35
-            local lx   = cx + lr * math.cos(mid)
-            local ly   = cy + lr * math.sin(mid)
+            local mid = angle + sweep / 2
+            local lr  = radius * 0.65 + inner_r * 0.35
+            local lx  = cx + lr * math.cos(mid)
+            local ly  = cy + lr * math.sin(mid)
             p[#p+1] = string.format(
                 '<text x="%g" y="%g" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="12" fill="white" font-weight="bold">%.0f%%</text>',
                 lx, ly, pct)
@@ -100,14 +135,21 @@ PrivateModule.Notebook_add_pie_chart = function(selfobj, data, options)
         angle = ea
     end
 
-    -- Legend at bottom
-    local lx = 10
-    local ly = height - 10
+    -- Legend at bottom (wraps to multiple rows if needed)
+    local leg_lx  = 10
+    local leg_row = 0   -- 0 = bottom row, increases upward
     for i, k in ipairs(keys) do
-        local color = colors[k] or PALETTE[((i - 1) % NUM_PALETTE) + 1]
-        p[#p+1] = string.format('<rect x="%g" y="%g" width="12" height="12" fill="%s" rx="2"/>', lx, ly - 11, color)
-        p[#p+1] = string.format('<text x="%g" y="%g" font-family="sans-serif" font-size="11" fill="#555">%s</text>', lx + 16, ly, k)
-        lx = lx + 16 + #k * 7 + 14
+        local color  = colors[k] or PALETTE[((i - 1) % NUM_PALETTE) + 1]
+        local item_w = swatch_w + #k * char_w + item_pad
+        if leg_lx + item_w > width and leg_lx > 10 then
+            leg_row = leg_row + 1
+            leg_lx  = 10
+        end
+        -- rows are stacked upward from the bottom
+        local row_y = height - 10 - leg_row * legend_row_h
+        p[#p+1] = string.format('<rect x="%g" y="%g" width="12" height="12" fill="%s" rx="2"/>', leg_lx, row_y - 11, color)
+        p[#p+1] = string.format('<text x="%g" y="%g" font-family="sans-serif" font-size="11" fill="#555">%s</text>', leg_lx + 16, row_y, k)
+        leg_lx = leg_lx + item_w
     end
 
     p[#p+1] = '</svg>'
