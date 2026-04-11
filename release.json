@@ -1,8 +1,8 @@
 {
 	"assets":	["release/lplot.lua", "release/lplotTypes.lua"],
-	"description":	"second release",
+	"description":	"third release",
     "replacers":{
     },
-	"release":	"0.0.2",
-	"tag":	"0.0.2"
+	"release":	"0.0.3",
+	"tag":	"0.0.3"
 }
